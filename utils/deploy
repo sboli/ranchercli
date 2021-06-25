@@ -1,0 +1,1 @@
+echo -n "{\"spec\": {\"template\": {\"metadata\": { \"labels\": {  \"deploy\": \"$(date -u '+%Y-%m-%d_%H-%M-%S')\"}},\"spec\":{\"containers\": {\"image\": \"$1\"}}}}}"
