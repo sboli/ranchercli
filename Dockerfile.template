@@ -1,7 +1,10 @@
 FROM alpine:latest
 
-RUN apk add curl kubectl=1.21.2-r0 && curl -Lo rancher-cli.tar.gz https://github.com/rancher/cli/releases/download/$VERSION/rancher-linux-amd64-$VERSION.tar.gz
-RUN tar zxf rancher-cli.tar.gz && mv rancher-$VERSION/rancher /usr/bin && rm -fr rancher-cli*
+
+RUN apk add curl \
+	&& curl -Lo rancher-cli.tar.gz https://github.com/rancher/cli/releases/download/$VERSION/rancher-linux-amd64-$VERSION.tar.gz \
+	&& curl -Lo /usr/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.21.2/bin/linux/amd64/kubectl \
+	&& tar zxf rancher-cli.tar.gz && mv rancher-$VERSION/rancher /usr/bin && rm -fr rancher-cli*
 ADD utils/* /usr/bin/
 
 ENTRYPOINT [ "/bin/sh", "-c" ]
