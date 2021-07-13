@@ -1,1 +1,1 @@
-echo -n "{\"spec\": {\"template\": {\"metadata\": { \"labels\": {  \"redeploy\": \"$(date -u '+%Y-%m-%d_%H-%M-%S')\"}}}}}"
+jq -n ".spec.template.metadata.labels.redeploy=\"$(date -u '+%Y-%m-%d_%H-%M-%S')\""
