@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 
-RUN apk add curl \
+RUN apk add curl jq \
 	&& curl -Lo rancher-cli.tar.gz https://github.com/rancher/cli/releases/download/$VERSION/rancher-linux-amd64-$VERSION.tar.gz \
 	&& curl -Lo /usr/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.21.2/bin/linux/amd64/kubectl && chmod a+x /usr/bin/kubectl \
 	&& tar zxf rancher-cli.tar.gz && mv rancher-$VERSION/rancher /usr/bin && rm -fr rancher-cli*
