@@ -1,1 +1,1 @@
-jq -n ".spec.template.metadata.labels.deploy=\"$(date -u '+%Y-%m-%d_%H-%M-%S')\"" | jq ".spec.template.spec.containers[0].image=\"$1\""
+jq -n ".spec.template.metadata.labels.deploy=\"$(date -u '+%Y-%m-%d_%H-%M-%S')\"" | jq ".spec.template.spec.containers[0].image=\"$1\"" | jq ".spec.template.spec.containers[0].name=\"$2\""
